@@ -132,7 +132,6 @@
                                     </a>
                                 </li>
                                 
-
                             </ul>
                             <a href="#" class="see-all">See all</a>
                         </div>
@@ -156,9 +155,7 @@
                                             <p> hi tomi </p>
                                         </div>
                                     </a>
-                                </li>
-                                
-
+                                </li>                           
 
                             </ul>
                             <a href="#" class="see-all">See all</a>
@@ -171,9 +168,7 @@
                         </a>
                         <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
                             <ul>
-                                <li><a href="setting.html"> Account setting </a> </li>
-                                <li><a href="explore.html">explore </a> </li>
-                                <li><a href="#"> Help </a> </li>
+                                <li><a href="{% url 'settings' %}"> Account setting </a> </li>
                                 <li><a href="{% url 'logout' %}"> Log Out</a></li>
                             </ul>
                         </div>
