@@ -9,13 +9,25 @@ from .models import Profile, Post
 @login_required(login_url='signin')
 def index(request):
     user_object = User.objects.get(username=request.user.username)
-    # user_profile = Profile.objects.get(user=user_object)
+    user_profile = Profile.objects.get(user=user_object)
     context = {'user_profile': user_object}
     return render(request, 'index.html', context)
 
 @login_required(login_url='signin')
 def upload(request):
-    return HttpResponse('<h1>Upload</h1>')
+
+    if request.method == 'POST':
+        user = request.user.username
+        image = request.FILES.get('image_upload')
+        caption = request.POST['caption']
+
+        new_post = Post.objects.create(user=user, image=image, caption=caption)
+        new_post.save()
+
+        return redirect('/')
+    else:
+        return redirect('/')
+    
 
 @login_required(login_url='signin')
 def settings(request):
